@@ -2,6 +2,16 @@ import { useQuery } from 'react-query'
 import axios from 'axios'
 import { Movie } from '../utils/types'
 
+/**
+ * @description This hook is used to fetch data from the TMDB API.
+ * @example
+ *  const {data, isLoading} = use useFetchTmdbData("trending/movies/week", "trends")
+ * @param config  Should be a string that forms the TMDB's query request parameters
+ * @param queryName Should be a string that forms the query key for React-Query
+ * @param isDependent  Should be a boolean that to disable automatic refetching when the query mounts or changes query keys.
+ * @tooling  Under the hook it uses React-Query + Axios
+ */
+
 export function useTmdbData(
   config: string,
   queryName: string,

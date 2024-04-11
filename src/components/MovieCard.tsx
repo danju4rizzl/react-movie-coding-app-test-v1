@@ -1,9 +1,10 @@
 import { BiLike } from 'react-icons/bi'
 import imdbLogo from '@/assets/imdb.svg'
 import { Movie } from '../utils/types'
+import MovieImage from './MovieImage'
+import { TMDB_IMAGE_SIZE } from '../utils/constance'
 
 const MovieCard = ({
-  id,
   title,
   release_date,
   vote_average,
@@ -14,11 +15,10 @@ const MovieCard = ({
     <>
       {/* Movie card */}
       <div className="group w-1/2 my-5">
-        {/*TODO: Make this image a link */}
-        <img
-          src={poster_path}
-          alt={`Image of ${title}`}
-          className="rounded-lg"
+        <MovieImage
+          imgTitle={title}
+          imgPath={poster_path}
+          imgSize={TMDB_IMAGE_SIZE.xl}
         />
 
         {/* Information  */}
