@@ -1,30 +1,22 @@
 import { BiLike } from 'react-icons/bi'
 import imdbLogo from '@/assets/imdb.svg'
-
-interface MovieCardProps {
-  id: number
-  title: string
-  releaseDate: string
-  voteAverage: number
-  voteCount: number
-  posterPath: string
-}
+import { Movie } from '../utils/types'
 
 const MovieCard = ({
   id,
   title,
-  releaseDate,
-  voteAverage,
-  voteCount,
-  posterPath
-}: MovieCardProps) => {
+  release_date,
+  vote_average,
+  vote_count,
+  poster_path
+}: Movie) => {
   return (
     <>
       {/* Movie card */}
       <div className="group w-1/2 my-5">
         {/*TODO: Make this image a link */}
         <img
-          src={posterPath}
+          src={poster_path}
           alt={`Image of ${title}`}
           className="rounded-lg"
         />
@@ -32,7 +24,7 @@ const MovieCard = ({
         {/* Information  */}
         <div className="grid gap-1 px-1 md:px-14 my-2 ">
           <p className="text-gray-500 text-sm">
-            Released: <span className="text-gray-600">{releaseDate}</span>
+            Released: <span className="text-gray-600">{release_date}</span>
           </p>
 
           {/*TODO: Replace this with a Link */}
@@ -49,7 +41,7 @@ const MovieCard = ({
           <div className="flex items-center">
             <img src={imdbLogo} alt="Logo of IMDB" width={40} height={40} />
             <p className="mx-2 text-sm text-gray-800 font-semibold">
-              {voteCount}
+              {vote_count}
             </p>
           </div>
           <div className="flex items-center">
@@ -57,7 +49,7 @@ const MovieCard = ({
               <BiLike className="text-white" />
             </div>
             <p className="mx-1 text-sm text-gray-800 font-semibold">
-              {voteAverage}
+              {vote_average}
             </p>
           </div>
         </div>
