@@ -3,8 +3,10 @@ import imdbLogo from '@/assets/imdb.svg'
 import { Movie } from '../utils/types'
 import MovieImage from './MovieImage'
 import { TMDB_IMAGE_SIZE } from '../utils/constance'
+import { Link } from 'react-router-dom'
 
 const MovieCard = ({
+  id,
   title,
   release_date,
   vote_average,
@@ -31,14 +33,12 @@ const MovieCard = ({
               </span>
             </p>
 
-            {/*TODO: Replace this with a Link */}
-
-            <a
-              href=""
+            <Link
+              to={`/movie/${id}`}
               className="text-xl font-medium xl:font-bold  text-gray-800 leading-tight capitalize truncate group-hover:text-rose-700 ease-out duration-500"
             >
               {title}
-            </a>
+            </Link>
           </div>
           {/* Ratings */}
           <div className="flex items-center justify-between px-1.5">
