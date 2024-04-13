@@ -1,28 +1,13 @@
-import { Link, useParams } from 'react-router-dom'
-import { useTmdbData } from '../hooks/useTmdbData'
+import { Link, useRouteLoaderData } from 'react-router-dom'
 import { TMDB_IMAGE_BASE, TMDB_IMAGE_SIZE } from '../utils/constance'
 
-import Feedback from '../components/ui/Spinner'
 import MovieImage from '../components/MovieImage'
 import Button from '../components/ui/Button'
 import { Movie } from '../utils/types'
 
 const MoviePage = () => {
-  const { id } = useParams()
-  const { data, isLoading, isError } = useTmdbData(`movie/${id}`, 'movie')
-
-  console.log('location', location)
-
-  // TODO 🔴 fix the hook to return type issues instead of using any
-  const currentMovie = data as Movie | any
-
-  if (isError) {
-    return <Feedback showError errorTitle="Cannot find movie ⚰️" />
-  }
-
-  if (isLoading) {
-    return <Feedback />
-  }
+  const res = useRouteLoaderData('movie')
+  const currentMovie = res as Movie
 
   return (
     <div

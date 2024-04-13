@@ -1,21 +1,10 @@
+import { useRouteLoaderData } from 'react-router-dom'
 import MovieCard from '../components/MovieCard'
-import Feedback from '../components/ui/Spinner'
-import { useTmdbData } from '../hooks/useTmdbData'
+import { MovieResults } from '../utils/types'
 
-function HomePage() {
-  const {
-    data: movies,
-    isLoading,
-    isError
-  } = useTmdbData('trending/movie/day', 'movies')
-
-  if (isError) {
-    return <Feedback showError />
-  }
-
-  if (isLoading) {
-    return <Feedback />
-  }
+const HomePage = () => {
+  const res = useRouteLoaderData('movies')
+  const movies = res as MovieResults
 
   return (
     <section>
