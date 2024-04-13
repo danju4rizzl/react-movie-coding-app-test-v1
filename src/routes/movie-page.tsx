@@ -6,7 +6,6 @@ import Feedback from '../components/ui/Spinner'
 import MovieImage from '../components/MovieImage'
 import Button from '../components/ui/Button'
 import { Movie } from '../utils/types'
-import React from 'react'
 
 const MoviePage = () => {
   const { id } = useParams()

@@ -1,7 +1,7 @@
 import Button from './ui/Button'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import useSearchMovie from '../hooks/useSearchMovie'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import MovieImage from './MovieImage'
 import { BiSearch } from 'react-icons/bi'
 
