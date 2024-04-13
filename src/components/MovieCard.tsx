@@ -17,11 +17,13 @@ const MovieCard = ({
     <>
       {/* Movie card */}
       <div className="pb-5 group md:w-full rounded-lg my-5 bg-neutral-100 shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 shadow-neutral-200">
-        <MovieImage
-          imgTitle={title}
-          imgPath={poster_path}
-          imgSize={TMDB_IMAGE_SIZE.xl}
-        />
+        <Link to={`/movie/${id}`}>
+          <MovieImage
+            imgTitle={title}
+            imgPath={poster_path}
+            imgSize={TMDB_IMAGE_SIZE.xl}
+          />
+        </Link>
 
         {/* Information  */}
         <div className="px-3">

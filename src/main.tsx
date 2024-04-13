@@ -6,18 +6,24 @@ import './index.css'
 import Root from './routes/root.tsx'
 import ErrorPage from './error-page.tsx'
 import MoviePage from './routes/movie-page.tsx'
+import HomePage from './routes/home-page.tsx'
 
 const queryClient = new QueryClient()
 
 const router = createBrowserRouter([
   {
-    path: '/',
     element: <Root />,
-    errorElement: <ErrorPage />
-  },
-  {
-    path: '/movie/:id',
-    element: <MoviePage />
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: '/',
+        element: <HomePage />
+      },
+      {
+        path: '/movie/:id',
+        element: <MoviePage />
+      }
+    ]
   }
 ])
 
