@@ -1,7 +1,7 @@
 import Button from './ui/Button'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import useSearchMovie from '../hooks/useSearchMovie'
-import { Link, useLocation, useNavigate, useMatch } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import MovieImage from './MovieImage'
 import { BiSearch } from 'react-icons/bi'
 
@@ -18,14 +18,6 @@ const SearchBox = () => {
   const canSearch = searchInput.length >= 2
 
   const { data: searchedMovies } = useSearchMovie(canSearch ? searchInput : '')
-
-  const navigate = useNavigate()
-  const location = useLocation()
-
-  const refreshPage = () => {
-    // Navigate to the current path, which refreshes the page
-    navigate(location.pathname, { replace: true })
-  }
 
   const onSubmit: SubmitHandler<SearchInput> = (data: SearchInput) => {
     // Todo: handle submit events here
@@ -48,12 +40,16 @@ const SearchBox = () => {
       </form>
       {canSearch && (
         <ul className="absolute grid gap-5  bg-neutral-100 w-full z-10 p-5 my-3 rounded-md">
+          {/* // TODO 🔴 fix the hook to return type issues instead of using any */}
           {searchedMovies?.slice(0, 5).map((movie: any) => (
             <li
               key={movie.id}
               onClick={() => {
+                // ! priority Fix- a temporary fix for redirecting to movie page from the movie page
+                window.location.replace(
+                  window.location.origin + `/movie/${movie.id}`
+                )
                 reset()
-                refreshPage()
               }}
             >
               <Link
