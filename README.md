@@ -36,14 +36,12 @@ bun dev
 ### 📦 Packages used in the project
 
 - [React](https://react.dev/) a JS library for building user interfaces
-- [TanStack Query](https://react-query.tanstack.com/) for managing and caching server state
-- [Axios](https://axios-http.com/) for making HTTP requests
-- [Swiper](https://swiperjs.com/) for creating responsive and touch-friendly sliders
+- [Axios](https://axios-http.com/) for making request to external api
 - [Tailwind CSS](https://tailwindcss.com/) for building responsive and customizable UI components
 - [TypeScript](https://www.typescriptlang.org/) for static types in JavaScript
 - [React Icons](https://react-icons.github.io/react-icons/) a collection of every icon set you'll ever need
-- [React Youtube](https://www.npmjs.com/package/react-youtube) for a layer over the YouTube IFrame Player API
 - [React Router](https://reactrouter.com/en/main/start/tutorial#setup) For page routing (navigation)
+- [React Youtube](https://www.npmjs.com/package/react-youtube) for a layer over the YouTube IFrame Player API (for movie trailer).
 
 ---
 

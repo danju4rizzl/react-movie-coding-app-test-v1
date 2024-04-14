@@ -1,4 +1,4 @@
-import { TMDB_IMAGE_BASE, TMDB_IMAGE_SIZE } from '../utils/constance'
+import { TMDB_IMAGE_BASE, TMDB_IMAGE_SIZE } from '../utils/constants'
 
 type MovieImageProps = {
   imgPath: string

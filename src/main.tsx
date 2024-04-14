@@ -1,15 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { QueryClientProvider, QueryClient } from 'react-query'
+
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import './index.css'
 import Root from './routes/root.tsx'
 import ErrorPage from './error-page.tsx'
 import MoviePage from './routes/movie-page.tsx'
 import HomePage from './routes/home-page.tsx'
-import { getMovies } from './utils/fetchMovieList.ts'
-
-const queryClient = new QueryClient()
+import { getMovies } from './utils/getMovies.ts'
 
 const router = createBrowserRouter([
   {
@@ -34,8 +32,6 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <RouterProvider router={router} />
-    </QueryClientProvider>
+    <RouterProvider router={router} />
   </React.StrictMode>
 )
