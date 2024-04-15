@@ -1,4 +1,4 @@
-import { ReactNode, FC } from 'react'
+import { ReactNode } from 'react'
 
 interface ButtonProps {
   children: ReactNode
@@ -6,7 +6,7 @@ interface ButtonProps {
   isSubmit?: boolean
 }
 
-const Button: FC<ButtonProps> = ({ children, className, isSubmit }) => {
+const Button = ({ children, className, isSubmit }: ButtonProps) => {
   return (
     <button
       className={`bg-rose-500 text-white px-4 py-2 rounded-md ${className}`}

@@ -1,17 +1,19 @@
-import { useLoaderData } from 'react-router-dom'
-import { TMDB_IMAGE_BASE, TMDB_IMAGE_SIZE } from '../utils/constants'
-
-import MovieImage from '../components/MovieImage'
-import { Movie, ReviewData } from '../utils/types'
-import Feedback from '../components/ui/Feedback'
 import { Suspense } from 'react'
-import ReviewCard from '../components/ReviewCard'
-import Title from '../components/ui/Title'
+import { useLoaderData } from 'react-router-dom'
+
+import { Movie, ReviewData } from '@/utils/types'
+import { TMDB_IMAGE_BASE, TMDB_IMAGE_SIZE } from '@/utils/constants'
+
+import MovieImage from '@/components/MovieImage'
+import Feedback from '@/components/ui/Feedback'
+import ReviewCard from '@/components/ReviewCard'
+import Title from '@/components/ui/Title'
 
 interface MoviePageData {
   movie: Movie
   reviews: ReviewData
 }
+
 const MoviePage = () => {
   const responseData = useLoaderData() as MoviePageData
   const { movie, reviews } = responseData

@@ -54,3 +54,25 @@ export interface ReviewData {
   total_pages: number
   total_results: number
 }
+
+// Deejay continue here : https://developer.themoviedb.org/reference/movie-credits
+// testing Movie ID: 1011985
+interface CastMember {
+  adult: boolean
+  gender: number
+  id: number
+  known_for_department: string
+  name: string
+  original_name: string
+  popularity: number
+  profile_path: string
+  cast_id: number
+  character: string
+  credit_id: string
+  order: number
+}
+
+interface MovieCredits {
+  id: number
+  cast: CastMember[]
+}

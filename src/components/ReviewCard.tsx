@@ -1,20 +1,20 @@
-import { formatDate } from '../utils/formatDate'
-import { Review } from '../utils/types'
-import Avatar from './ui/Avatar'
+import { formatDate } from '@/utils/formatDate'
+import { Review } from '@/utils/types'
+import Avatar from '@/components/ui/Avatar'
 
 const ReviewCard = ({ author_details, content, updated_at }: Review) => {
   return (
-    <div className="bg-white  shadow rounded-lg pl-5 md:pr-10  md:py-10 flex items-start space-x-4">
+    <div className=" backdrop-blur backdrop-saturate-50 bg-opacity-40 bg-neutral-600    shadow-lg shadow-neutral-800   rounded-lg pl-5 md:pr-10  md:py-10 flex items-start space-x-4">
       <Avatar placeholder={author_details.username[0]} />
       <div className="flex-1">
-        <div className="flex justify-between items-center">
+        <div className="flex justify-between items-center text-neutral-100">
           <div>
-            <p className="font-semibold text-neutral-800 text-2xl">
+            <p className="font-semibold text-2xl drop-shadow-2xl shadow-neutral-200 ">
               @{author_details.username}
             </p>
-            <p className="text-sm text-neutral-500">{formatDate(updated_at)}</p>
+            <p className="text-sm text-neutral-300">{formatDate(updated_at)}</p>
           </div>
-          <div className="flex items-center space-x-2 text-rose-500">
+          <div className="flex items-center space-x-2 text-rose-300">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -32,7 +32,7 @@ const ReviewCard = ({ author_details, content, updated_at }: Review) => {
             <span className="font-semibold">{author_details.rating}</span>
           </div>
         </div>
-        <p className="mt-2 text-neutral-700">{content}</p>
+        <p className="mt-2">{content}</p>
       </div>
     </div>
   )

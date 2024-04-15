@@ -1,5 +1,6 @@
-import { TMDB_IMAGE_BASE, TMDB_IMAGE_SIZE } from '../utils/constants'
 import { CiImageOff } from 'react-icons/ci'
+
+import { TMDB_IMAGE_BASE, TMDB_IMAGE_SIZE } from '@/utils/constants'
 
 type MovieImageProps = {
   imgPath: string

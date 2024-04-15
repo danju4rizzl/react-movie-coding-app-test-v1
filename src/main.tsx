@@ -1,13 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import '@/index.css'
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import './index.css'
-import Root from './routes/root.tsx'
-import ErrorPage from './error-page.tsx'
-import MoviePage from './routes/movie-page.tsx'
-import HomePage from './routes/home-page.tsx'
-import { getMovies } from './utils/getMovies.ts'
+import Root from '@/routes/root.tsx'
+import ErrorPage from '@/error-page.tsx'
+import MoviePage from '@/routes/movie-page.tsx'
+import HomePage from '@/routes/home-page.tsx'
+import { getMovies } from '@/utils/getMovies.ts'
 
 const router = createBrowserRouter([
   {

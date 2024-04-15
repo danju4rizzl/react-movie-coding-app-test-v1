@@ -14,10 +14,10 @@ const Feedback = ({
   errorClassName
 }: FeedbackProps) => {
   return (
-    <div className="grid justify-center py-32">
+    <div className="py-5">
       {showError ? (
         <p
-          className={`text-center  text-neutral-400 text-3xl ${errorClassName}`}
+          className={`text-center text-neutral-400 text-3xl ${errorClassName}`}
         >
           {errorTitle
             ? errorTitle

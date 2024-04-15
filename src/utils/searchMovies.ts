@@ -1,6 +1,7 @@
 import axios from 'axios'
-import { TMDB_API_KEY, TMDB_BASE_URL } from './constants'
-import { Movie, MovieData } from './types'
+
+import { TMDB_API_KEY, TMDB_BASE_URL } from '@/utils/constants'
+import { Movie, MovieData } from '@/utils/types'
 
 export const searchMovies = (query: string): Promise<Movie[]> => {
   return new Promise(async (resolve, reject) => {

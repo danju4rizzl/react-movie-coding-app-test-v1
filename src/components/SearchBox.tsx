@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useForm, SubmitHandler } from 'react-hook-form'
-import MovieImage from './MovieImage'
-import { Movie } from '../utils/types'
-import { searchMovies } from '../utils/searchMovies'
+
+import { Movie } from '@/utils/types'
+import { searchMovies } from '@/utils/searchMovies'
+import MovieImage from '@/components/MovieImage'
 
 interface SearchInput {
   search: string

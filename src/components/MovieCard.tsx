@@ -1,9 +1,11 @@
-import { BiLike } from 'react-icons/bi'
-import imdbLogo from '@/assets/imdb.svg'
-import { Movie } from '../utils/types'
-import MovieImage from './MovieImage'
-import { TMDB_IMAGE_SIZE } from '../utils/constants'
 import { Link } from 'react-router-dom'
+import { BiLike } from 'react-icons/bi'
+
+import { TMDB_IMAGE_SIZE } from '@/utils/constants'
+import { Movie } from '@/utils/types'
+
+import MovieImage from '@/components/MovieImage'
+import imdbLogo from '@/assets/imdb.svg'
 
 const MovieCard = ({
   id,
