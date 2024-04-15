@@ -1,3 +1,4 @@
+// Interface defining the structure of a Movie object
 export interface Movie {
   backdrop_path: string
   id: number
@@ -16,6 +17,7 @@ export interface Movie {
   vote_count: number
 }
 
+// Interface representing the data structure for a collection of movies
 export interface MovieData {
   page: number
   results: Movie[]
@@ -23,6 +25,32 @@ export interface MovieData {
   total_results: number
 }
 
+// Type defining the structure of movie results
 export type MovieResults = {
   results: Movie[]
+}
+
+// Interface representing the base structure for a review
+export interface Review {
+  author: string
+  author_details: {
+    name: string
+    username: string
+    avatar_path: string | null
+    rating: number
+  }
+  content: string
+  created_at: string
+  id: string
+  updated_at: string
+  url: string
+}
+
+// Interface defining the data  structure for reviews
+export interface ReviewData {
+  id: number
+  page: number
+  results: Review[]
+  total_pages: number
+  total_results: number
 }

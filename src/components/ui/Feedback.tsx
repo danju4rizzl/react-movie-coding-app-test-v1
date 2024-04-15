@@ -4,13 +4,21 @@ type FeedbackProps = {
   className?: string
   showError?: boolean
   errorTitle?: string
+  errorClassName?: string
 }
 
-const Feedback = ({ className, showError, errorTitle }: FeedbackProps) => {
+const Feedback = ({
+  className,
+  showError,
+  errorTitle,
+  errorClassName
+}: FeedbackProps) => {
   return (
-    <div className="grid justify-center py-52">
+    <div className="grid justify-center py-32">
       {showError ? (
-        <p className="text-center text-red-700 text-3xl">
+        <p
+          className={`text-center  text-neutral-400 text-3xl ${errorClassName}`}
+        >
           {errorTitle
             ? errorTitle
             : 'Something went wrong, please try again later.'}

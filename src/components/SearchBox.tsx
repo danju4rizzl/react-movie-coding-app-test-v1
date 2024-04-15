@@ -1,9 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useForm, SubmitHandler } from 'react-hook-form'
-import Button from './ui/Button'
 import MovieImage from './MovieImage'
-import { BiSearch } from 'react-icons/bi'
 import { Movie } from '../utils/types'
 import { searchMovies } from '../utils/searchMovies'
 
@@ -24,7 +22,7 @@ const SearchBox = () => {
   const canSearch = searchInput.length >= 2
 
   const handleSearch = async () => {
-    // Handles and gets  the search here
+    // This function handles and gets the search results here
     if (!canSearch) return
     const searchResults = await searchMovies(searchInput)
     setSearchedMovies(searchResults)
@@ -37,7 +35,7 @@ const SearchBox = () => {
   }
 
   useEffect(() => {
-    // Handles and gets  the search here
+    // Handles and gets the search here
     handleSearch()
   }, [canSearch, searchInput])
 
@@ -50,14 +48,10 @@ const SearchBox = () => {
           className="p-3 bg-transparent border-0 outline-0 flex-1"
           {...register('search')}
         />
-
-        <Button isSubmit>
-          <BiSearch />
-        </Button>
       </form>
       {canSearch && (
         <ul className="absolute grid gap-5  bg-neutral-100 w-full z-10 p-5 my-3 rounded-md">
-          {searchedMovies?.slice(0, 5).map(({ id, poster_path, title }) => (
+          {searchedMovies?.slice(0, 4).map(({ id, poster_path, title }) => (
             <li
               key={id}
               onClick={() => {

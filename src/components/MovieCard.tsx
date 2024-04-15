@@ -16,7 +16,7 @@ const MovieCard = ({
   return (
     <>
       {/* Movie card */}
-      <div className="pb-5 group md:w-full rounded-lg my-5 bg-neutral-100 shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 shadow-neutral-200">
+      <div className="pb-5 group md:w-full rounded-lg my-5 bg-neutral-100 shadow-xl hover:shadow-2xl hover:shadow-neutral-400 hover:-translate-y-3 transition-all duration-300 shadow-neutral-200">
         <Link to={`/movie/${id}`}>
           <MovieImage
             imgTitle={title}

@@ -23,7 +23,12 @@ const router = createBrowserRouter([
       {
         element: <MoviePage />,
         path: '/movie/:id',
-        loader: async ({ params }) => getMovies(`movie/${params.id}`),
+        loader: async ({ params }) => {
+          const movie = await getMovies(`movie/${params.id}`)
+          const reviews = await getMovies(`movie/${params.id}/reviews`)
+
+          return { movie, reviews }
+        },
         id: 'movie'
       }
     ]
