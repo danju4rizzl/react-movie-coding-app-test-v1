@@ -4,7 +4,7 @@ import Avatar from '@/components/ui/Avatar'
 
 const ReviewCard = ({ author_details, content, updated_at }: Review) => {
   return (
-    <div className=" backdrop-blur backdrop-saturate-50 bg-opacity-40 bg-neutral-600    shadow-lg shadow-neutral-800   rounded-lg pl-5 md:pr-10  md:py-10 flex items-start space-x-4">
+    <div className=" backdrop-blur backdrop-saturate-50 bg-opacity-40 bg-neutral-600 shadow-lg shadow-neutral-800 rounded-lg pl-5 md:pr-10  md:py-10 flex items-start space-x-4 ">
       <Avatar placeholder={author_details.username[0]} />
       <div className="flex-1">
         <div className="flex justify-between items-center text-neutral-100">

@@ -19,7 +19,7 @@ const MoviePage = () => {
   const { movie, reviews } = responseData
 
   return (
-    <section>
+    <section className="pt-24">
       <Suspense fallback={<Feedback />}>
         <div
           className="grid place-content-center gap-3 text-white  md:gap-12 md:px-40 md:pt-40 pb-20 bg-no-repeat bg-cover bg-center"
@@ -40,13 +40,13 @@ const MoviePage = () => {
               <p className="text-lg">{movie.overview}</p>
             </div>
           </div>
-          {/* Review card */}
+          {/* Reviews */}
           {!reviews.results.length ? (
             <Feedback errorTitle="No Reviews Yet" showError />
           ) : (
-            <div className="space-y-10 max-w-screen-lg mx-auto">
+            <div className="space-y-10 max-w-screen-lg mx-auto ">
               <Title className="text-neutral-100">User reviews</Title>
-              <ul className="overflow-y-scroll pr-5 grid  gap-8 md:max-h-72 ">
+              <ul className="overflow-y-scroll pr-5 grid gap-8 md:max-h-72 ">
                 {reviews.results.map((review) => (
                   <ReviewCard key={review.id} {...review} />
                 ))}

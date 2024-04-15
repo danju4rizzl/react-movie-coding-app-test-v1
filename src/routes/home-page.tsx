@@ -10,7 +10,7 @@ const HomePage = () => {
   const movies = res as MovieResults
 
   return (
-    <section className="pt-10">
+    <section className="pt-24">
       <Suspense fallback={<Feedback />}>
         <div className="p-4 sm:p-14 md:py-20 md:px-32">
           <div className="space-y-5">

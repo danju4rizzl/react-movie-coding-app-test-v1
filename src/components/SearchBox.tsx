@@ -41,8 +41,11 @@ const SearchBox = () => {
   }, [canSearch, searchInput])
 
   return (
-    <div className="relative bg-neutral-100 rounded-md w-1/3">
-      <form onSubmit={handleSubmit(onSubmit)} className=" flex justify-between">
+    <div className="relative bg-neutral-100 rounded-md w-full lg:w-1/2  ">
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className=" flex justify-between "
+      >
         <input
           type="search"
           placeholder="Search"
