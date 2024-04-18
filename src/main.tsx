@@ -2,38 +2,41 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import '@/index.css'
 
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
+  RouterProvider
+} from 'react-router-dom'
 import Root from '@/routes/root.tsx'
 import ErrorPage from '@/error-page.tsx'
 import MoviePage from '@/routes/movie-page.tsx'
 import HomePage from '@/routes/home-page.tsx'
 import { getMovies } from '@/utils/getMovies.ts'
 
-const router = createBrowserRouter([
-  {
-    element: <Root />,
-    errorElement: <ErrorPage />,
-    children: [
-      {
-        element: <HomePage />,
-        path: '/',
-        loader: async () => getMovies('trending/movie/day'),
-        id: 'movies'
-      },
-      {
-        element: <MoviePage />,
-        path: '/movie/:id',
-        loader: async ({ params }) => {
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route element={<Root />} errorElement={<ErrorPage />}>
+      <Route
+        path="/"
+        element={<HomePage />}
+        id="movies"
+        loader={async () => getMovies('trending/movie/day')}
+      />
+      <Route
+        path="/movie/:id"
+        element={<MoviePage />}
+        id="movie"
+        loader={async ({ params }) => {
           const movie = await getMovies(`movie/${params.id}`)
           const reviews = await getMovies(`movie/${params.id}/reviews`)
 
           return { movie, reviews }
-        },
-        id: 'movie'
-      }
-    ]
-  }
-])
+        }}
+      />
+    </Route>
+  )
+)
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
