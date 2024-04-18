@@ -8,6 +8,7 @@ import MovieImage from '@/components/MovieImage'
 import Feedback from '@/components/ui/Feedback'
 import ReviewCard from '@/components/ReviewCard'
 import Title from '@/components/ui/Title'
+import Badge from '@/components/ui/Badge'
 
 interface MoviePageData {
   movie: Movie
@@ -32,7 +33,9 @@ const MoviePage = () => {
         >
           {/* Information */}
           <div className="grid sm:flex gap-3 md:gap-8 p-5">
-            <div className="w-full">
+            <div
+              className={`max-w-sm ${movie.poster_path ? 'w-full' : 'w-1/2'}`}
+            >
               <MovieImage
                 imgTitle={movie.title}
                 imgPath={movie.poster_path}
@@ -40,27 +43,43 @@ const MoviePage = () => {
               />
             </div>
             <div className="grid content-center gap-5">
-              <Title className="text-neutral-100">{movie.title}</Title>
+              <div className="">
+                <Title className="text-neutral-100">{movie.title}</Title>
+                <p className="font-semibold">{movie.tagline}</p>
+              </div>
               <p className="text-lg">{movie.overview}</p>
-              <div className="">{}</div>
+              <div className="flex space-x-5">
+                {movie.genres.map(({ name, id }) => (
+                  <Badge key={id} title={name} />
+                ))}
+              </div>
+              <div className="">
+                {movie.release_date && (
+                  <Badge
+                    title={`Premiered: ${movie.release_date.slice(0, 4)}`}
+                  />
+                )}
+              </div>
             </div>
           </div>
 
           {/* Recommendations */}
-          <div className="space-y-8 p-5">
-            <Title className="text-neutral-100">You might also like </Title>
-            <div className="grid justify-center gap-5 md:gap-8 grid-cols-2 sm:grid-cols-4 xl:grid-cols-8 ">
-              {recommendations?.results.slice(0, 8).map((movie) => (
-                <Link key={movie.id} to={`/movie/${movie.id}`}>
-                  <MovieImage
-                    imgPath={movie.poster_path}
-                    imgTitle={movie.title}
-                    imgSize={TMDB_IMAGE_SIZE.md}
-                  />
-                </Link>
-              ))}
+          {recommendations.results.length > 0 && (
+            <div className="space-y-8 p-5">
+              <Title className="text-neutral-100">You might also like </Title>
+              <div className="grid justify-center gap-5 md:gap-8 grid-cols-2 sm:grid-cols-4 xl:grid-cols-8 ">
+                {recommendations?.results.slice(0, 8).map((movie) => (
+                  <Link key={movie.id} to={`/movie/${movie.id}`}>
+                    <MovieImage
+                      imgPath={movie.poster_path}
+                      imgTitle={movie.title}
+                      imgSize={TMDB_IMAGE_SIZE.md}
+                    />
+                  </Link>
+                ))}
+              </div>
             </div>
-          </div>
+          )}
 
           {/* Reviews */}
           <div className="p-5">
