@@ -5,6 +5,7 @@ import { useForm, SubmitHandler } from 'react-hook-form'
 import { Movie } from '@/utils/types'
 import { searchMovies } from '@/utils/searchMovies'
 import MovieImage from '@/components/MovieImage'
+import Feedback from './ui/Feedback'
 
 interface SearchInput {
   search: string
@@ -41,7 +42,7 @@ const SearchBox = () => {
   }, [canSearch, searchInput])
 
   return (
-    <div className="relative bg-neutral-200 rounded-md mx-auto w-full max-w-lg">
+    <div className="relative bg-neutral-100 rounded-md mx-auto w-full max-w-lg">
       <form onSubmit={handleSubmit(onSubmit)} className=" flex justify-between">
         <input
           type="search"
@@ -52,23 +53,29 @@ const SearchBox = () => {
       </form>
       {canSearch && (
         <ul className="absolute grid gap-5  bg-neutral-100 w-full z-10 p-3 my-3 rounded-md">
-          {searchedMovies?.slice(0, 3).map(({ id, poster_path, title }) => (
-            <li
-              key={id}
-              onClick={() => {
-                navigate(`/movie/${id}`)
-                reset()
-              }}
-            >
-              <Link
-                to={`/movie/${id}`}
-                className="flex gap-5 hover:bg-neutral-200 rounded-lg p-3 "
-              >
-                <MovieImage imgPath={poster_path} imgTitle={title} />
-                <h5 className="text-xl font-bold">{title}</h5>
-              </Link>
-            </li>
-          ))}
+          {searchedMovies?.length ? (
+            <>
+              {searchedMovies?.slice(0, 3).map(({ id, poster_path, title }) => (
+                <li
+                  key={id}
+                  onClick={() => {
+                    navigate(`/movie/${id}`)
+                    reset()
+                  }}
+                >
+                  <Link
+                    to={`/movie/${id}`}
+                    className="flex gap-5 hover:bg-neutral-200 rounded-lg p-3 "
+                  >
+                    <MovieImage imgPath={poster_path} imgTitle={title} />
+                    <h5 className="text-xl font-bold">{title}</h5>
+                  </Link>
+                </li>
+              ))}
+            </>
+          ) : (
+            <Feedback errorTitle="Oops! 🎬 Movie Not Found" showError />
+          )}
         </ul>
       )}
     </div>
