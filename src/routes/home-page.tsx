@@ -13,6 +13,7 @@ const HomePage = () => {
     <section className="pt-24">
       <Suspense fallback={<Feedback />}>
         <div className="p-4 sm:p-14 md:py-20 md:px-32">
+          {/* Hero Section will be here*/}
           <div className="space-y-5">
             <Title>Random Movies</Title>
             <div className="grid justify-center  gap-1 md:gap-8 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">

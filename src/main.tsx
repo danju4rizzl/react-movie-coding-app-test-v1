@@ -30,8 +30,10 @@ const router = createBrowserRouter(
         loader={async ({ params }) => {
           const movie = await getMovies(`movie/${params.id}`)
           const reviews = await getMovies(`movie/${params.id}/reviews`)
-
-          return { movie, reviews }
+          const recommendations = await getMovies(
+            `movie/${params.id}/recommendations`
+          )
+          return { movie, reviews, recommendations }
         }}
       />
     </Route>

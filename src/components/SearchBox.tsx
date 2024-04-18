@@ -41,11 +41,8 @@ const SearchBox = () => {
   }, [canSearch, searchInput])
 
   return (
-    <div className="relative bg-neutral-100 rounded-md w-full lg:w-1/2  ">
-      <form
-        onSubmit={handleSubmit(onSubmit)}
-        className=" flex justify-between "
-      >
+    <div className="relative bg-neutral-200 rounded-md mx-auto w-full max-w-lg">
+      <form onSubmit={handleSubmit(onSubmit)} className=" flex justify-between">
         <input
           type="search"
           placeholder="Search"
@@ -54,8 +51,8 @@ const SearchBox = () => {
         />
       </form>
       {canSearch && (
-        <ul className="absolute grid gap-5  bg-neutral-100 w-full z-10 p-5 my-3 rounded-md">
-          {searchedMovies?.slice(0, 4).map(({ id, poster_path, title }) => (
+        <ul className="absolute grid gap-5  bg-neutral-100 w-full z-10 p-3 my-3 rounded-md">
+          {searchedMovies?.slice(0, 3).map(({ id, poster_path, title }) => (
             <li
               key={id}
               onClick={() => {

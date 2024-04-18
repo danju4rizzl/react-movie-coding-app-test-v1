@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* For Webkit browsers (Chrome, Safari, etc.) */
+::-webkit-scrollbar {
+  width: 12px; /* width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: transparent; /* color of the track */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888; /* color of the scrollbar */
+  border-radius: 50px;
+}
