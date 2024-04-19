@@ -33,11 +33,9 @@ const router = createBrowserRouter(
           const recommendations = await getMovies(
             `movie/${params.id}/recommendations`
           )
+          const credits = await getMovies(`movie/${params.id}/credits`)
 
-          console.log(`🎥Movie`, movie)
-          console.log(`🤘Reviews`, reviews)
-          console.log(`🤨recommendations`, recommendations)
-          return { movie, reviews, recommendations }
+          return { movie, reviews, recommendations, credits }
         }}
       />
     </Route>

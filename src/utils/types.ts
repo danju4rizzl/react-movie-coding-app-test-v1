@@ -88,7 +88,7 @@ export interface ReviewData {
 
 // Deejay continue here : https://developer.themoviedb.org/reference/movie-credits
 // testing Movie ID: 1011985
-export interface CastMember {
+export interface Credits {
   adult: boolean
   gender: number
   id: number
@@ -105,5 +105,5 @@ export interface CastMember {
 
 export interface MovieCredits {
   id: number
-  cast: CastMember[]
+  cast: Credits[]
 }
