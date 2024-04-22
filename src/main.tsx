@@ -9,10 +9,37 @@ import {
   RouterProvider
 } from 'react-router-dom'
 import Root from '@/routes/root.tsx'
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  gql
+} from '@apollo/client'
 import ErrorPage from '@/error-page.tsx'
 import MoviePage from '@/routes/movie-page.tsx'
 import HomePage from '@/routes/home-page.tsx'
 import { getMovies } from '@/utils/getMovies.ts'
+
+const movieUri = 'https://graph.imdbapi.dev/v1'
+
+const client = new ApolloClient({
+  uri: movieUri,
+  cache: new InMemoryCache()
+})
+
+// client
+//   .query({
+//     query: gql`
+//       {
+//         title(id: "tt15398776") {
+//           id
+//           type
+//           primary_title
+//         }
+//       }
+//     `
+//   })
+//   .then((result) => console.log(result))
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -44,6 +71,8 @@ const router = createBrowserRouter(
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <ApolloProvider client={client}>
+      <RouterProvider router={router} />
+    </ApolloProvider>
   </React.StrictMode>
 )

@@ -1,5 +1,7 @@
 import { Suspense } from 'react'
 import { Link, useLoaderData } from 'react-router-dom'
+import { useQuery } from '@apollo/client'
+import { MoviesQuery } from '@/graphql/get-movies'
 
 import { Movie, MovieCredits, MovieResults, ReviewData } from '@/utils/types'
 import { TMDB_IMAGE_BASE, TMDB_IMAGE_SIZE } from '@/utils/constants'
@@ -19,6 +21,19 @@ interface MoviePageData {
 }
 
 const MoviePage = () => {
+  const { data, loading, error } = useQuery(MoviesQuery, {
+    variables: {
+      ids: ['tt0063646', 'tt0063634'] // make this random
+    }
+  })
+
+  // if (loading) return <p className="text-8xl text-center ">Loading...</p>
+  // if (error) return <p className="text-8xl">Error: {error.message}</p>
+  if (loading) console.log(loading)
+  if (error) console.log(error)
+  if (data) console.log(data)
+  // console.log(!error?.message ? 'No Error' : error?.message)
+
   const isMobile = useIsMobile()
   const responseData = useLoaderData() as MoviePageData
   const { movie, reviews, recommendations, credits } = responseData
