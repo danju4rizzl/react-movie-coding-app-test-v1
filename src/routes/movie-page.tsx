@@ -77,9 +77,11 @@ const MoviePage = () => {
                       ({ order, profile_path }) => profile_path && order < 4
                     )
                     .map(({ name, profile_path }) => (
-                      <div className="grid justify-items-center space-y-3">
+                      <div
+                        className="grid justify-items-center space-y-3"
+                        key={name}
+                      >
                         <img
-                          key={name}
                           src={`${TMDB_IMAGE_BASE}/${
                             isMobile
                               ? TMDB_IMAGE_SIZE['2xl']
